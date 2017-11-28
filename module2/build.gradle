@@ -17,7 +17,7 @@ buildscript {
     }
 }
 repositories {
-    mavenCentral()
+    jcenter()
 }
 compileKotlin {
     kotlinOptions {
@@ -29,3 +29,28 @@ compileTestKotlin {
         jvmTarget = "1.8"
     }
 }
+
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+
+
+    // Android backport of JSR-310 (java.time.* in Java8) https://github.com/JakeWharton/ThreeTenABP
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
+    compile 'org.eclipse.jgit:org.eclipse.jgit:3.7.1.201504261725-r'
+    // https://github.com/ReactiveX/RxKotlin
+    compile 'org.javamoney:moneta-bp:1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "io.reactivex.rxjava2:rxjava:${v.rxjava2}"
+    // https://github.com/ReactiveX/RxAndroid
+    implementation "io.reactivex.rxjava2:rxandroid:${v.rxandroid}"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //    implementation group: 'com.jcraft', name: 'jsch', version: '0.1.54'
+    testImplementation 'io.kotlintest:kotlintest:2.0.3'
+
+    compile group: 'javax.inject', name: 'javax.inject', version: '1'
+}
+configurations {
+    implementation.exclude module: 'httpclient'
+}
+
