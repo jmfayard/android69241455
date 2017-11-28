@@ -1,0 +1,3 @@
+rootProject.name = '69241455'
+
+include 'module0','module1','module2','module3','module4','androidAppModule0','androidAppModule1'
